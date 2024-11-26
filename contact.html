@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Stasko.me</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Header with navigation -->
+    <header>
+        <div id="mobile-nav-toggle">
+            ☰
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="report.html">Report</a>
+            <a href="unhook.html">Unhook</a>
+            <a href="https://discord.gg/TWv3zcKTbc" target="_blank" rel="noopener">Discord</a>
+        </nav>
+    </header>
+
+    <!-- Main content section -->
+    <main>
+        <section class="contact">
+            <h1 class="stasko-text">Contact</h1>
+            <p class="hero-description">
+                Have any questions or feedback? Reach out to me using the form below.
+            </p>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="username">Your Name</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+            <p id="response" style="color: #ff7f00; margin-top: 10px;"></p>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            const webhookUrl = "https://discord.com/api/webhooks/1309873090486075473/Pq2zUaZIxdKkFzBhIbntyBnSWIQPF2z4F9JusM2CmEgjpw8OCyLaj8ft4FvyfZUQX2rG"; // Replace with your webhook URL
+
+            const payload = {
+                content: `**New Contact Form Submission**\n**Name:** ${username}\n**Email:** ${email}\n**Message:**\n${message}`
+            };
+
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(payload),
+                });
+
+                if (response.ok) {
+                    document.getElementById("response").textContent = "Message sent successfully!";
+                    document.getElementById("contact-form").reset();
+                } else {
+                    document.getElementById("response").textContent = "Failed to send message. Try again later.";
+                }
+            } catch (error) {
+                document.getElementById("response").textContent = "An error occurred. Try again later.";
+                console.error("Error sending message to Discord:", error);
+            }
+        });
+    </script>
+    <script src="phone.js"></script>
+</body>
+</html>

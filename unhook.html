@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unhook - Stasko.me</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <header>
+        <div id="mobile-nav-toggle">
+            ☰
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="report.html">Report</a>
+            <a href="unhook.html" class="active">Unhook</a>
+            <a href="https://discord.gg/TWv3zcKTbc" target="_blank" rel="noopener">Discord</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="unhook">
+            <h1 class="stasko-text">Unhook</h1>
+            <p class="hero-description">
+                Deletes a Discord webhook - mainly used to disable scams, token loggers, information grabbers, etc.<br><br>
+                Beware that this makes a request on <b>your</b> behalf, so I'm not responsible for how much you spam with this.<small> (i hope)</small>
+            </p>
+
+            <!-- Input fields for webhook and message -->
+            <label for="webhook-url">Discord Webhook URL:</label>
+            <input type="text" id="webhook-url" placeholder="Enter your Discord webhook URL here" required>
+            
+            <p class="hero-description">
+                Leave the taunt message blank to not include a message before the deletion of the webhook.
+            </p>
+            <label for="webhook-msg">Taunt Message (optional):</label>
+            <input type="text" id="webhook-msg" placeholder="Taunt message"><br><br>
+            
+            <!-- Submit button -->
+            <button id="submit-button" class="submit-button">💣 BOOM 💣</button>
+
+            <!-- Response message -->
+            <p id="unhook-response"></p>
+        </section>
+    </main>
+
+    <noscript>
+        <p style="color: red;">This page requires JavaScript to function properly. Please enable JavaScript in your browser.</p>
+    </noscript>
+
+    <script src="unhook.js"></script>
+    <script src="phone.js"></script>
+</body>
+</html>
+
+

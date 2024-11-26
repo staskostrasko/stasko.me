@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report - Stasko.me</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    
+    <!-- Header Section -->
+    <header>
+        <div id="mobile-nav-toggle">
+            ☰
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="report.html" class="active">Report</a>
+            <a href="unhook.html">Unhook</a>
+            <a href="https://discord.gg/TWv3zcKTbc" target="_blank" rel="noopener">Discord</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <section class="report-container">
+            <h1 class="stasko-text">Report Scams</h1><br>
+            <form class="form" id="report-form">
+                <!-- Discord ID -->
+                <div class="form-group">
+                    <label for="discord-id">Your Discord ID</label>
+                    <input type="text" id="discord-id" name="discord-id" placeholder="Enter your Discord ID" required>
+                </div>
+            
+                <!-- Scam Details -->
+                <div class="form-group">
+                    <label for="scam-details">Scam URL/Invite/Proof</label>
+                    <textarea id="scam-details" name="scam-details" rows="5" placeholder="Enter details of the scam" required></textarea>
+                </div>
+            
+                <!-- Submit Button -->
+                <button id="submit-button" class="submit-button">REPORT</button>
+            </form>
+            
+            
+            <p class="ip-info">
+                YOUR IP WILL BE USED FOR THE PREVENTION OF ABUSE ONLY
+                <br>
+                <span>Your IP is </span>
+                <span class="hidden-ip">(hover to show)</span>
+            </p>
+    
+            
+        </section>
+    </main>
+    <script src="report.js"></script>
+    <script src="phone.js"></script>
+</body>
+</html>
